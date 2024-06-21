@@ -1,8 +1,8 @@
 import router from '../../router';
 import { Menu } from 'antd';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
-const items = router.map((item, index) => ({
+const items = router.map(item => ({
   key: item.path,
   label: item.name
 }));
@@ -18,6 +18,7 @@ const Nav = () => {
       theme="dark"
       mode="inline"
       defaultSelectedKeys={[router[0].path]}
+      selectedKeys={[useLocation().pathname]}
       items={items}
       onClick={onClickMenuItem}
     />
